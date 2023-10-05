@@ -1,6 +1,7 @@
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap Q :q<CR>
 inoremap <silent> jj <ESC>
 
 "ノーマルモードでのキー移動
