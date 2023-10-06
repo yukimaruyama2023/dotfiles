@@ -12,11 +12,11 @@ inoremap <C-n> <Down>
 
 "括弧における補完
 inoremap { {}<Left>
-inoremap ( ()<Left>
+"inoremap ( ()<Left>
 inoremap {<CR> {<CR>}<C-o>O
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-inoremap " ""<Left>
-inoremap ' ''<Left>
+"inoremap " ""<Left>
+"inoremap ' ''<Left>
 
 "カラースキームの設定"
 set background=dark
