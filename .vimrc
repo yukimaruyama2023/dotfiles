@@ -4,6 +4,10 @@ nnoremap <Leader>q :q<CR>
 nnoremap Q :q<CR>
 inoremap <silent> jj <ESC>
 
+" fzf.vimに関するマッピング
+nnoremap <C-l> :bn<CR>
+nnoremap <C-h> :bp<CR>
+
 "ノーマルモードでのキー移動
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
