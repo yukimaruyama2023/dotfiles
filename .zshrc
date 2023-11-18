@@ -8,9 +8,9 @@
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
 
 # Customize to your needs...
 
@@ -18,15 +18,21 @@ fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/maruyama/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 alias c='clear'
 alias vc='vim ~/.vimrc'
 alias zc='vim ~/.zshrc'
 alias vim='nvim'
 alias vi='nvim'
 alias la='ls -a'
-alias ls='ls -l'
+alias ll='ls -l'
+alias sl='ls'
 alias ls='ls --color=auto'
 alias cat='batcat'
+alias ..='cd ../'
+alias ...='cd ../../'
 
 # fd - cd to selected directory
 cd-fzf-find() {
@@ -48,4 +54,11 @@ vim-rg-find() {
     vim "$FILE"
 }
 alias rv=vim-rg-find
+
+# Use fzf for Ctrl-R
+bindkey '^R' history-incremental-search-backward
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 

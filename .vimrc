@@ -3,12 +3,29 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap Q :q<CR>
 inoremap <silent> jj <ESC>
+nnoremap <Leader>rg :Rg<CR>
+nnoremap <Leader>fi :Files
+nnoremap <Leader>is :History<CR>
 
-" fzf.vimに関するマッピング
-nnoremap <C-l> :bn<CR>
-nnoremap <C-h> :bp<CR>
+" fzf.vimに関するマッピング(開いている次のファイル,もしくは，前のファイルに移動)
+" nnoremap <C-l> :bn<CR>
+" nnoremap <C-h> :bp<CR>
+" nnoremap <Leader>x :bd<CR>
+nnoremap <Leader>l :bn<CR>
+nnoremap <Leader>h :bp<CR>
+nnoremap <Leader>x :bd<CR>
 
-"ノーマルモードでのキー移動
+"ファイルパスを取得する
+nnoremap <Leader>path :echo expand('%:p')<CR>
+
+"ctagsにおいて設定しておくと便利らしい
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
+
+" tagsジャンプの時に複数ある時は一覧表示                                        
+nnoremap <C-]> g<C-]> 
+
+"insertモードでのキー移動
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-p> <Up>
@@ -27,7 +44,7 @@ set background=dark
 colorscheme iceberg
 
 "C-/によるコメント"
-noremap <C-/> :Commentary<CR>
+nnoremap <C-/> :Commentary<CR>
 
 " Vim-Plugの設定
 call plug#begin('~/.vim/plugged')
@@ -50,16 +67,22 @@ Plug 'vim-airline/vim-airline-themes'
 "コメント"
 Plug 'tpope/vim-commentary'
 
+"vim-tmux navigator
+Plug 'christoomey/vim-tmux-navigator'
+
 " Vim-Plugの設定の終了
 call plug#end()
 
 " vim-airline
-let g:airline_theme = 'dark'
+" let g:airline_theme = 'dark'
+" let g:airline_theme = 'jellybeans'
+let g:airline_theme = 'tomorrow'
+" let g:airline_theme = 'deus theme'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 "vim_airlineのテーマ"
-let g:airline_theme = 'codedark'
+" let g:airline_theme = 'codedark'
 
 "カーソルの右の文字を消す.消したい文字の直後が改行だとうまくいかない
 inoremap <C-d> <ESC><Right>xi
@@ -147,7 +170,7 @@ set title
 " 行番号の表示
 set number
 " ヤンクでクリップボードにコピー
-"set clipboard=unnamed,autoselect"
+" set clipboard=unnamed,autoselect"
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 " シンタックスハイライト
