@@ -19,11 +19,12 @@ autoload -U promptinit; promptinit
 prompt pure
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/maruyama/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 alias c='clear'
 alias vc='vim ~/.vimrc'
 alias zc='vim ~/.zshrc'
+alias tc='vim ~/.tmux.conf'
 alias vim='nvim'
 alias vi='nvim'
 alias la='ls -a'
