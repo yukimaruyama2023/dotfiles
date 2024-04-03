@@ -6,6 +6,7 @@ ln -sf ~/dotfiles/.tmux.conf  ~/.tmux.conf
 
 # Check if Neovim is installed
 if ! command -v nvim &> /dev/null
+# if command -v nvim &> /dev/null
 then
     echo "Neovim is not installed. Installing..."
     
@@ -60,4 +61,7 @@ if [ ! -d ~/.zsh/pure ]; then
     git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure
 fi
 
-
+if [ ! -d ~/.tmux ]; then
+    mkdir -p ~/.tmux
+    ln -sf ~/dotfiles/.tmux/tomorrow_tmuxline.conf ~/.tmux/tomorrow_tmuxline.conf
+fi

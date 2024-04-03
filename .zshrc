@@ -31,7 +31,8 @@ alias la='ls -a'
 alias ll='ls -l'
 alias sl='ls'
 alias ls='ls --color=auto'
-alias cat='batcat'
+alias cat='batcat' # if Linux
+# alias cat='bat' # if Mac
 alias ..='cd ../'
 alias ...='cd ../../'
 
