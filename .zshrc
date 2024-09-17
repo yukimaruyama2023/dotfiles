@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #
 # Executes commands at the start of an interactive session.
 #
@@ -7,16 +14,11 @@
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
-# Source Prezto.
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
-
 # Customize to your needs...
 
 fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit # this is needed for display maruyama@ibaraki
+# prompt pure
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -27,11 +29,13 @@ alias zc='vim ~/.zshrc'
 alias tc='vim ~/.tmux.conf'
 alias vim='nvim'
 alias vi='nvim'
-alias la='ls -a'
-alias ll='ls -l'
-alias sl='ls'
-alias ls='ls --color=auto'
+alias ls='exa'
+alias la='exa -a'
+alias ll='exa -l'
+alias sl='exa'
+alias ls='exa --color=auto'
 alias cat='batcat' # if Linux
+alias lg='lazygit' # if Linux
 # alias cat='bat' # if Mac
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -64,3 +68,27 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Load pyenv automatically by appending
+# the following to
+# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+# and ~/.bashrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Restart your shell for the changes to take effect.
+
+# Load pyenv-virtualenv automatically by adding
+# the following to ~/.bashrc:
+
+eval "$(pyenv virtualenv-init -)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
