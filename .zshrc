@@ -20,6 +20,12 @@ fpath+=$HOME/.zsh/pure
 # autoload -U promptinit; promptinit # this is needed for display maruyama@ibaraki
 # prompt pure
 
+export BAT_THEME="DarkNeon"
+# export BAT_THEME="gruvbox-dark"
+# export BAT_THEME="Nord"
+
+ln -sf "/home/maruyama/eza-themes/themes/dracula.yml" ~/.config/eza/theme.yml
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -27,13 +33,15 @@ alias c='clear'
 alias vc='vim ~/.vimrc'
 alias zc='vim ~/.zshrc'
 alias tc='vim ~/.tmux.conf'
+alias sz='source ~/.zshrc'
+alias st='tmux source ~/.tmux.conf'
 alias vim='nvim'
 alias vi='nvim'
-alias ls='exa'
-alias la='exa -a'
-alias ll='exa -l'
-alias sl='exa'
-alias ls='exa --color=auto'
+alias ls='eza'
+alias la='eza -a'
+alias ll='eza -l'
+alias sl='eza'
+# alias ls='eza --color=auto'
 alias cat='batcat' # if Linux
 alias lg='lazygit' # if Linux
 # alias cat='bat' # if Mac
@@ -50,8 +58,10 @@ cd-fzf-find() {
 alias fd=cd-fzf-find
 
 vim-fzf-find() {
-    local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' +m) &&
+  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' +m)
+  if [ -n "$FILE" ]; then
     vim "$FILE"
+  fi
 }
 alias fv=vim-fzf-find
 
