@@ -65,3 +65,7 @@ if [ ! -d ~/.tmux ]; then
     mkdir -p ~/.tmux
     ln -sf ~/dotfiles/.tmux/tomorrow_tmuxline.conf ~/.tmux/tomorrow_tmuxline.conf
 fi
+
+if [ ! -d ~/.pyenv ]; then
+  curl https://pyenv.run | zsh
+fi
