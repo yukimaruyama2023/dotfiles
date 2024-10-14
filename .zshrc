@@ -25,6 +25,7 @@ export BAT_THEME="DarkNeon"
 # export BAT_THEME="Nord"
 
 ln -sf "/home/maruyama/eza-themes/themes/dracula.yml" ~/.config/eza/theme.yml
+# ln -sf "/home/maruyama/eza-themes/themes/default.yml" ~/.config/eza/theme.yml
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -41,10 +42,21 @@ alias ls='eza'
 alias la='eza -a'
 alias ll='eza -l'
 alias sl='eza'
-# alias ls='eza --color=auto'
+alias ta='tmux a'
+alias tn='tmux new-session -s'
+alias tnd='tmux new-session -d -s'
 alias cat='batcat' # if Linux
 alias lg='lazygit' # if Linux
 # alias cat='bat' # if Mac
+alias gl='git log'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gr='git remote'
+alias gd='git diff'
+alias gb='git branch'
+alias gs='git switch'
 alias ..='cd ../'
 alias ...='cd ../../'
 
@@ -52,13 +64,19 @@ alias ...='cd ../../'
 cd-fzf-find() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+                  -o -type d -print 2> /dev/null | fzf-tmux -p +m) &&
   cd "$dir"
+
+  local exit_code=$? 
+  if [ "$exit_code" -ne 0 ]; then
+    return 0
+  fi
 }
 alias fd=cd-fzf-find
 
 vim-fzf-find() {
-  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' +m)
+  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview 'batcat --style=numbers --color=always --theme=DarkNeon --line-range :500 {}' +m)
+  # local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview +m)
   if [ -n "$FILE" ]; then
     vim "$FILE"
   fi
