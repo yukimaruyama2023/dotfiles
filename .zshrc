@@ -17,6 +17,9 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 # Customize to your needs...
 
 fpath+=$HOME/.zsh/pure
+
+export PATH="$HOME/.local/bin:$PATH"
+
 # autoload -U promptinit; promptinit # this is needed for display maruyama@ibaraki
 # prompt pure
 

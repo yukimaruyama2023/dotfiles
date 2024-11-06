@@ -69,3 +69,6 @@ fi
 if [ ! -d ~/.pyenv ]; then
   curl https://pyenv.run | zsh
 fi
+
+source ~/.zshrc
+source ~/.tmux.conf
