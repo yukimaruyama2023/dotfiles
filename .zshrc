@@ -1,12 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-#
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
 
-#
 # Executes commands at the start of an interactive session.
 #
 # Authors:
@@ -14,21 +9,16 @@
 #
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
-
-# Customize to your needs...
-
-
 export PATH="$HOME/.local/bin:$PATH"
 
-# autoload -U promptinit; promptinit # this is needed for display maruyama@ibaraki
-# prompt pure
-
-export BAT_THEME="DarkNeon"
+# export BAT_THEME="DarkNeon"
 # export BAT_THEME="gruvbox-dark"
 # export BAT_THEME="Nord"
+export BAT_THEME="Catppuccin Mocha"
 
-ln -sf "/home/maruyama/eza-themes/themes/dracula.yml" ~/.config/eza/theme.yml
+# ln -sf "/home/maruyama/eza-themes/themes/dracula.yml" ~/.config/eza/theme.yml
 # ln -sf "/home/maruyama/eza-themes/themes/default.yml" ~/.config/eza/theme.yml
+ln -sf "/home/maruyama/eza-themes/themes/catppuccin.yml" ~/.config/eza/theme.yml
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -79,7 +69,7 @@ cd-fzf-find() {
 alias fd=cd-fzf-find
 
 vim-fzf-find() {
-  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview 'batcat --style=numbers --color=always --theme=DarkNeon --line-range :500 {}' +m)
+  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview 'batcat --style=numbers --color=always --theme="Catppuccin Mocha" --line-range :500 {}' +m)
   # local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview +m)
   if [ -n "$FILE" ]; then
     vim "$FILE"
@@ -99,25 +89,9 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Load pyenv automatically by appending
-# the following to
-# ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
-# and ~/.bashrc (for interactive shells) :
-
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# Restart your shell for the changes to take effect.
-
-# Load pyenv-virtualenv automatically by adding
-# the following to ~/.bashrc:
 
 eval "$(pyenv virtualenv-init -)"
 
@@ -125,6 +99,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# ~/.bashrc
-
 eval "$(starship init zsh)"
+
+export FZF_DEFAULT_OPTS="--color=bg:#1e1e2e,fg:#cdd6f4 --color=hl:#f38ba8,hl+:#f38ba8 --color=info:#74c7ec,prompt:#a6e3a1,pointer:#cba6f7 --color=marker:#cba6f7,spinner:#f9e2af --color=header:#cdd6f4"

@@ -4,7 +4,7 @@ format = """
 [](surface0)\
 $os\
 $username\
-[](bg:purple fg:surface0)\
+[](bg:peach fg:surface0)\
 $directory\
 [](fg:peach bg:green)\
 $git_branch\
