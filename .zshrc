@@ -1,9 +1,10 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 #
 # Executes commands at the start of an interactive session.
@@ -16,7 +17,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 
 # Customize to your needs...
 
-fpath+=$HOME/.zsh/pure
 
 export PATH="$HOME/.local/bin:$PATH"
 
@@ -33,6 +33,7 @@ ln -sf "/home/maruyama/eza-themes/themes/dracula.yml" ~/.config/eza/theme.yml
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+alias reset='~/workspace/a.out'
 alias c='clear'
 alias vc='vim ~/.vimrc'
 alias zc='vim ~/.zshrc'
@@ -99,10 +100,10 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load pyenv automatically by appending
 # the following to
@@ -123,3 +124,7 @@ eval "$(pyenv virtualenv-init -)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# ~/.bashrc
+
+eval "$(starship init zsh)"
