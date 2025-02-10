@@ -23,7 +23,7 @@ ln -sf "/home/maruyama/eza-themes/themes/catppuccin.yml" ~/.config/eza/theme.yml
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias reset='~/workspace/a.out'
+alias reset='~/workspace/reset'
 alias c='clear'
 alias vc='vim ~/.vimrc'
 alias zc='vim ~/.zshrc'
@@ -102,3 +102,12 @@ eval "$(pyenv init -)"
 eval "$(starship init zsh)"
 
 export FZF_DEFAULT_OPTS="--color=bg:#1e1e2e,fg:#cdd6f4 --color=hl:#f38ba8,hl+:#f38ba8 --color=info:#74c7ec,prompt:#a6e3a1,pointer:#cba6f7 --color=marker:#cba6f7,spinner:#f9e2af --color=header:#cdd6f4"
+
+
+# enable key-bindings
+# bindkey -v
+# export KEYTIMEOUT=1
+# bindkey -M viins 'jj' vi-cmd-mode  # jk でノーマルモードに移行（好みに応じて変更）
+# zle-line-init() { zle vi-cmd-mode; }  # Zsh 起動時にノーマルモードにする
+# zle -N zle-line-init
+bindkey -e
