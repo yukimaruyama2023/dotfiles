@@ -121,3 +121,7 @@ export FZF_DEFAULT_OPTS="--color=bg:#1e1e2e,fg:#cdd6f4 --color=hl:#f38ba8,hl+:#f
 
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
+
+if [ -f "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
