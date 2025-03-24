@@ -33,7 +33,7 @@ ln -sf "/home/maruyama/eza-themes/themes/catppuccin.yml" ~/.config/eza/theme.yml
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias reset='~/workspace/reset'
+alias reset='~/workspace/reset_metrics_array/reset'
 alias c='clear'
 alias vc='vim ~/.vimrc'
 alias zc='vim ~/.zshrc'
