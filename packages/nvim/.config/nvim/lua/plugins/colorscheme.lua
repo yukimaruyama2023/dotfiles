@@ -4,7 +4,8 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "mocha", -- choose from "mocha", "macchiato", "frappe", "latte"
+      -- flavour = "mocha", -- choose from "mocha", "macchiato", "frappe", "latte"
+      flavour = "macchiato", -- choose from "mocha", "macchiato", "frappe", "latte"
     },
   },
   {

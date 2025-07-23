@@ -24,7 +24,8 @@ fpath+=$HOME/.zsh/pure
 # export BAT_THEME="DarkNeon"
 # export BAT_THEME="gruvbox-dark"
 # export BAT_THEME="Nord"
-export BAT_THEME="Catppuccin Mocha"
+# export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="Catppuccin Macchiato"
 
 # ln -sf "/home/maruyama/eza-themes/themes/dracula.yml" ~/.config/eza/theme.yml
 # ln -sf "/home/maruyama/eza-themes/themes/default.yml" ~/.config/eza/theme.yml
@@ -66,6 +67,8 @@ alias gs='git switch'
 alias ..='cd ../'
 alias ...='cd ../../'
 
+# unbindkey '^[h'   # Esc + h を解除
+
 # fd - cd to selected directory
 cd-fzf-find() {
   local dir
@@ -81,7 +84,7 @@ cd-fzf-find() {
 alias fd=cd-fzf-find
 
 vim-fzf-find() {
-  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview 'batcat --style=numbers --color=always --theme="Catppuccin Mocha" --line-range :500 {}' +m)
+  local FILE=$(find ./ -path '*/\.*' -prune -o -type f -print 2> /dev/null | fzf-tmux -p --preview 'batcat --style=numbers --color=always --theme="Catppuccin Macchiato" --line-range :500 {}' +m)
   if [ -n "$FILE" ]; then
     vim "$FILE"
   fi
@@ -117,7 +120,16 @@ eval "$(pyenv init -)"
 eval "$(starship init zsh)"
 
 # change fzf them to catppuccin
-export FZF_DEFAULT_OPTS="--color=bg:#1e1e2e,fg:#cdd6f4 --color=hl:#f38ba8,hl+:#f38ba8 --color=info:#74c7ec,prompt:#a6e3a1,pointer:#cba6f7 --color=marker:#cba6f7,spinner:#f9e2af --color=header:#cdd6f4"
+# for catppuccin mocha
+# export FZF_DEFAULT_OPTS="--color=bg:#1e1e2e,fg:#cdd6f4 --color=hl:#f38ba8,hl+:#f38ba8 --color=info:#74c7ec,prompt:#a6e3a1,pointer:#cba6f7 --color=marker:#cba6f7,spinner:#f9e2af --color=header:#cdd6f4"
+
+# for catppuccin macchiato
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363A4F,bg:#24273A,spinner:#F4DBD6,hl:#ED8796 \
+--color=fg:#CAD3F5,header:#ED8796,info:#C6A0F6,pointer:#F4DBD6 \
+--color=marker:#B7BDF8,fg+:#CAD3F5,prompt:#C6A0F6,hl+:#ED8796 \
+--color=border:#363A4F,label:#CAD3F5"
+# --color=selected-bg:#494D64 \
 
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init zsh)"
