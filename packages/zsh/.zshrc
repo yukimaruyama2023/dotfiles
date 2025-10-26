@@ -53,7 +53,7 @@ alias sl='eza -F'
 alias ta='tmux a'
 alias tn='tmux new-session -s'
 alias tnd='tmux new-session -d -s'
-alias cat='batcat' # for Linux
+alias bat='batcat' # for Linux
 alias lg='lazygit' # for Linux
 # alias cat='bat' # for Mac
 alias gl='git log'
@@ -67,6 +67,12 @@ alias gb='git branch'
 alias gs='git switch'
 alias ..='cd ../'
 alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+
+alias -g col='(){awk "{print \$$1}"}'
 
 # unbindkey '^[h'   # Esc + h を解除
 
