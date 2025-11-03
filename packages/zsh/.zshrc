@@ -150,3 +150,7 @@ eval "$(zoxide init zsh)"
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
+
+if [ -n "$SSH_AUTH_SOCK" ]; then
+  ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
+fi
