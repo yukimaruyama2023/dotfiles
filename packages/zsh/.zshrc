@@ -70,6 +70,7 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ......='cd ../../../../../'
+alias diff='git diff --no-index'
 
 
 alias -g col='(){awk "{print \$$1}"}'
