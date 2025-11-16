@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# GNU Stow is a symlink farm manager
+# GNU Stow dotfiles manager
 # https://www.gnu.org/software/stow/manual/stow.html
 #
 
@@ -15,9 +15,11 @@ fi
 # Prepare the directory structure
 mkdir -p "$HOME"/.config
 
+#############################################
 # Stow the dotfiles
+#############################################
 PACKDIR=packages
-for package in $(ls $PACKDIR); do
+for package in $(ls "$PACKDIR"); do
   if [ "$action" == "--unstow" ]; then
     stow -D -v -d "$PACKDIR" -t "$HOME" "$package"
   else
