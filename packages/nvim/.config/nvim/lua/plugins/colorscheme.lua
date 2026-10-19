@@ -5,7 +5,7 @@ return {
     name = "catppuccin",
     opts = {
       -- flavour = "macchiato", -- choose from "mocha", "macchiato", "frappe", "latte"
-      flavour = "frappe", -- choose from "mocha", "macchiato", "frappe", "latte"
+      flavour = "mocha", -- choose from "mocha", "macchiato", "frappe", "latte"
     },
   },
   {
